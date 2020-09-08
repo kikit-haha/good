@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--	css reset-->
+    <link rel="stylesheet" href="../css/reset.css" type="text/css" />
+    <!--base.css-->
+    <link rel="stylesheet" href="../css/base.css" type="text/css" />
+    <!--layout_m.css-->
+    <link rel="stylesheet" href="../css/mobile/main_m.css" type="text/css" />
+    <!--아이콘폰트 주소-->
+    <link rel="stylesheet" href="../css/all.css" type="text/css" />
+    <!-- 폰트Noto Snas Kr -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- 슬라이더 -->
+    <link rel="stylesheet" type="text/css" href="../slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="../slick/slick-theme.css" />
+
+    <!--css3속성사용시 접두사 생략해도 되는 소스-->
+    <script src="../script/prefixfree.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../slick/slick.min.js"></script>
+    <title>BLACKYAK(M)</title>
+  </head>
+
+  <body>
+    <!--상단헤더영역 시작-->
+    <header>
+      <nav>
+        <ul class="m-gnb">
+          <li>
+            <a href="index.html"
+              >로고<img src="../img/header_logo.png" alt="소모양 아이콘과텍스트"
+            /></a>
+          </li>
+          <li>
+            <a href="search.html" title="검색"><i class="fas fa-search"></i></a>
+          </li>
+          <li>
+            <a href="cart.html" title="장바구니"><i class="fas fa-shopping-cart"></i></a>
+          </li>
+          <li><i class="fas fa-bars"></i></li>
+        </ul>
+      </nav>
+      <form action="/" name="search" id="search-box">
+        <fieldset class="search_area">
+          <legend>검색</legend>
+          <input type="search" placeholder="검색" id="search-box" />
+          <button onclick=""></button>
+        </fieldset>
+      </form>
+    </header>
+    <!--콘텐츠영역 시작-->
+    <section>
+      <div class="section--inner">
+        <div class="main_image">
+          <div class="main_image__slide">
+            <img src="../img/main_01.jpg" alt="정상에서" />
+          </div>
+          <div class="main_image__slide">
+            <img src="../img/main_02.jpg" alt="" />
+          </div>
+          <div class="main_image__slide">
+            <img src="..img/main_03.jpg" alt="" />
+          </div>
+        </div>
+        <div class="section-inner">
+          <article class="content">
+            <figure class="figure">
+              <a href="hightech_collection.html" title="하이테크콜렉션" class="figure__image"
+                ><img src="../img/con_02.jpg" alt="에베레스트를 오르고있는 김미곤대장"
+              /></a>
+              <figcaption class="figure__text">
+                <p class="figure__text--title">MADE FOR MISSIONS</p>
+                <p class="figure__text--sub">
+                  진정한 알피니스트를 위해 만들어진 HIGH-TECH SERIES<br />
+                  김미곤 대장의 경험을 공유 합니다
+                </p>
+                <div class="figure__button">
+                  <a href="hightech_collection.html" title="하이테크콜렉션">자세히 보기</a>
+                </div>
+              </figcaption>
+            </figure>
+          </article>
+          <article class="smooth-slide">
+            <h3>BEST PRODUCTS</h3>
+            <div class="content--slide">
+              <div class="card">
+                <a href="summer_event.html">
+                  <div>
+                    <img src="../img/slide_01.jpg" alt="수영복입고 튜브에 앉아있는 어린이" />
+                  </div>
+                  <h4>2020 HOT SUMMER</h4>
+                  <p>래쉬가드 기획전 어디에서나 시원하게!</p>
+                </a>
+              </div>
+            </div>
+          </article>
+          <article class="content">
+            <figure class="figure">
+              <a href="yakice.html" title="야크아이스" class="figure__image"
+                ><img src="../img/con_03.jpg" alt=""
+              /></a>
+              <figcaption class="figure__text">
+                <p class="figure__text--title">CONTACT COOL YAKICE</p>
+                <p class="figure__text--sub">
+                  자이리톨 원료를 사용한 야크아이스 냉감원단으로 언제나 쾌적하고 시원하게
+                  유지해줍니다.<br />
+                  자연을 더욱 COOL하게 만나보세요
+                </p>
+                <div class="figure__button">
+                  <a href="yakice.html" title="야크아이스">자세히 보기</a>
+                </div>
+              </figcaption>
+            </figure>
+          </article>
+          <article class="tab">
+            <div>
+              <h3 class="tab--heading__best act">BEST ITEMS</h3>
+              <div class="content-tab tab-active">
+                <ul class="list">
+                  <li class="item">
+                    <a href="women_pants" title="여성등산바지">
+                      <div class="item__img-wrap">
+                        <img src="../img/best_item_01.png" alt="여성등산바지 검정색" />
+                      </div>
+                    </a>
+                    <h4 class="item__title">U로아나팬츠(여성)</h4>
+                    <p class="item__price">88,000원</p>
+                    <div class="item__hash">
+                      <a href="find.html" title="검색" class="item__hash__link"
+                        ><span class="hashtag">#20</span></a
+                      >
+                      <a href="find.html" title="검색" class="item__hash__link"
+                        ><span class="hashtag">#여성</span></a
+                      >
+                      <a href="find.html" title="검색" class="item__hash__link"
+                        ><span class="hashtag">#바지</span></a
+                      >
+                      <a href="find.html" title="검색" class="item__hash__link"
+                        ><span class="hashtag">#여름</span></a
+                      >
+                    </div>
+                  </li>
+                  <li class="item">
+                    <a href="hiking_shoes.html" title="남성등산신발">
+                      <div class="item__img-wrap">
+                        <img src="../img/best_item_02.png" alt="남성등산신발" />
+                      </div>
+                    </a>
+                    <h4 class="item__title">뉴요크셔 GTX(남성)</h4>
+                    <p class="item__price">269,000원</p>
+                    <div class="item__hash">
+                      <a href="find.html" title="검색" class="item__hash__link"
+                        ><span class="hashtag">#20</span></a
+                      >
+                      <a href="find.html" title="검색" class="item__hash__link"
+                        ><span class="hashtag">#남성</span></a
+                      >
+                      <a href="find.html" title="검색" class="item__hash__link"
+                        ><span class="hashtag">#신발</span></a
+                      >
+                      <a href="find.html" title="검색" class="item__hash__link"
+                        ><span class="hashtag">#사계절</span></a
+                      >
+                    </div>
+                  </li>
+                  <li class="item">
+                    <a href="t-shirt-milo.html" title="M마일로티셔츠">
+                      <div class="item__img-wrap">
+                        <img
+                          src="../img/best_item_03.png"
+                          alt="왼쪽가슴에 BAC로고있는 검정티셔츠"
+                        />
+                      </div>
+                    </a>
+                    <h4 class="item__title">M마일로티셔츠(남성)</h4>
+                    <p class="item__price">79,000원</p>
+                    <div class="item__hash">
+                      <a href="find.html" title="검색" class="item__hash__link"
+                        ><span class="hashtag">#20FW</span></a
+                      >
+                      <a href="find.html" title="검색" class="item__hash__link"
+                        ><span class="hashtag">#남성</span></a
+                      >
+                      <a href="find.html" title="검색" class="item__hash__link"
+                        ><span class="hashtag">#티셔츠</span></a
+                      >
+                      <a href="find.html" title="검색" class="item__hash__link"
+                        ><span class="hashtag">#가을</span></a
+                      >
+                    </div>
+                  </li>
+                  <li class="item">
+                    <a href="t-shirt-bac.html" title="BAC티셔츠">
+                      <div class="item__img-wrap">
+                        <img src="../img/best_item_04.png" alt="남성등산신발" />
+                      </div>
+                    </a>
+                    <h4 class="item__title">BAC가야티셔츠S(남성))</h4>
+                    <p class="item__price">78,000원</p>
+                    <div class="item__hash">
+                      <a href="find.html" title="검색" class="item__hash__link"
+                        ><span class="hashtag">#20</span></a
+                      >
+                      <a href="find.html" title="검색" class="item__hash__link"
+                        ><span class="hashtag">#남성</span></a
+                      >
+                      <a href="find.html" title="검색" class="item__hash__link"
+                        ><span class="hashtag">#티셔츠</span></a
+                      >
+                      <a href="find.html" title="검색" class="item__hash__link"
+                        ><span class="hashtag">#여름</span></a
+                      >
+                    </div>
+                  </li>
+                  <li class="item">
+                    <a href="t-shirt-bac.html" title="BAC티셔츠">
+                      <div class="item__img-wrap">
+                        <img src="../img/best_item_05.png" alt="남성등산신발" />
+                      </div>
+                    </a>
+                    <h4 class="item__title">BAC백운티셔츠(남성)</h4>
+                    <p class="item__price">98,000원</p>
+                    <div class="item__hash">
+                      <a href="find.html" title="검색" class="item__hash__link"
+                        ><span class="hashtag">#20</span></a
+                      >
+                      <a href="find.html" title="검색" class="item__hash__link"
+                        ><span class="hashtag">#남성</span></a
+                      >
+                      <a href="find.html" title="검색" class="item__hash__link"
+                        ><span class="hashtag">#티셔츠</span></a
+                      >
+                      <a href="find.html" title="검색" class="item__hash__link"
+                        ><span class="hashtag">#사계절</span></a
+                      >
+                    </div>
+                  </li>
+                  <li class="item">
+                    <a href="shoes-new-yorkshire.html" title="뉴요크셔 GTX">
+                      <div class="item__img-wrap">
+                        <img src="../img/best_item_06.png" alt="남성등산신발" />
+                      </div>
+                    </a>
+                    <h4 class="item__title">뉴요크셔 GTX(남성)</h4>
+                    <p class="item__price">269,000원</p>
+                    <div class="item__hash">
+                      <a href="find.html" title="검색" class="item__hash__link"
+                        ><span class="hashtag">#20</span></a
+                      >
+                      <a href="find.html" title="검색" class="item__hash__link"
+                        ><span class="hashtag">#남성</span></a
+                      >
+                      <a href="find.html" title="검색" class="item__hash__link"
+                        ><span class="hashtag">#신발</span></a
+                      >
+                      <a href="find.html" title="검색" class="item__hash__link"
+                        ><span class="hashtag">#사계절</span></a
+                      >
+                    </div>
+                  </li>
+                  <li class="item">
+                    <a href="jacket-laven.hatml" title="검정 바람막이 후드 자켓">
+                      <div class="item__img-wrap">
+                        <img src="../img/best_item_07.png" alt="남성등산신발" />
+                      </div>
+                    </a>
+                    <h4 class="item__title">웨일스(공용)</h4>
+                    <p class="item__price">99,000원</p>
+                    <div class="item__hash">
+                      <a href="find.html" title="검색" class="item__hash__link"
+                        ><span class="hashtag">#20</span></a
+                      >
+                      <a href="find.html" title="검색" class="item__hash__link"
+                        ><span class="hashtag">#공용</span></a
+                      >
+                      <a href="find.html" title="검색" class="item__hash__link"
+                        ><span class="hashtag">#신발</span></a
+                      >
+                      <a href="find.html" title="검색" class="item__hash__link"
+                        ><span class="hashtag">#사계절</span></a
+                      >
+                    </div>
+                  </li>
+                  <li class="item">
+                    <a href="shoes_hiking.html" title="블랙/레드등산화">
+                      <div class="item__img-wrap">
+                        <img src="../img/best_item_08.png" alt="남성등산신발" />
+                      </div>
+                    </a>
+                    <h4 class="item__title">크라운 DD GTX(남성)</h4>
+                    <p class="item__price">329,000원</p>
+                    <div class="item__hash">
+                      <a href="find.html" title="검색" class="item__hash__link"
+                        ><span class="hashtag">#20</span></a
+                      >
+                      <a href="find.html" title="검색" class="item__hash__link"
+                        ><span class="hashtag">#남성</span></a
+                      >
+                      <a href="find.html" title="검색" class="item__hash__link"
+                        ><span class="hashtag">#신발</span></a
+                      >
+                      <a href="find.html" title="검색" class="item__hash__link"
+                        ><span class="hashtag">#사계절</span></a
+                      >
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+    <!--푸터영역 시작-->
+    <footer>
+      <div class="top">
+        <a href="#" title="위로 바로가기">TOP<i class="fas fa-angle-up"></i></a>
+      </div>
+      <div class="footer-inner">
+        ​
+        <ul class="footer--top">
+          <li><a href="#" title="">로그인</a></li>
+          <li><a href="#" title="">매장안내</a></li>
+          <li><a href="#" title="">고객센터</a></li>
+          <li>
+            <a
+              href="http://https://kikit-haha.github.io/hello/sport/index.html?move_pc_screen=1"
+              title="pc버전보기"
+              >PC버전</a
+            >
+          </li>
+        </ul>
+        <dl class="sns">
+          <dt>sns</dt>
+          <dd>
+            <a href="instagram.html" class="sns--a"><i class="fab fa-facebook-f"></i></a>
+          </dd>
+          <dd>
+            <a href="instagram.html" class="sns--a"><i class="fab fa-instagram"></i></a>
+          </dd>
+          <dd>
+            <a href="instagram.html" class="sns--a"><i class="fab fa-twitter"></i></a>
+          </dd>
+          <dd>
+            <a href="instagram.html" class="sns--a"><i class="fab fa-blogger-b"></i></a>
+          </dd>
+        </dl>
+        <address class="footer--address">
+          ㈜비와이엔블랙야크 대표이사 &colon; 강태선 개인정보책임자 &colon; 황일찬<br />
+          사업자등록번호 &colon; 211-81-56627 통신판매업신고 &colon; 제2016-서울서초-1484호 137-886
+          서울특별시 서초구 바우뫼로201 블랙야크 양재사옥<br />
+          FAX 02)2286-9700 blackyakmall@blackyak.com<br />
+          Copyright &copy; BYN BLACKYAK CO.LTD.ALL RIGHT RESERVED.
+        </address>
+      </div>
+    </footer>
+    <script>
+      $(document).ready(function () {
+        $(".main_image").slick({
+          dots: true,
+          autoplay: true,
+          autoplaySpeed: 3000,
+          arrows: true,
+          infinite: true,
+        });
+        $(".list").slick({
+          dots: true,
+          infinite: false,
+          speed: 300,
+          slidesToShow: 4,
+          slidesToScroll: 4,
+
+          responsive: [
+            {
+              breakpoint: 1024,
+              settings: {
+                slidesToShow: 3,
+                slidesToScroll: 3,
+                infinite: true,
+                dots: true,
+              },
+            },
+            {
+              breakpoint: 600,
+              settings: {
+                slidesToShow: 2,
+                slidesToScroll: 2,
+              },
+            },
+            {
+              breakpoint: 480,
+              settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1,
+              },
+            },
+            // You can unslick at a given breakpoint now by adding:
+            // settings: "unslick"
+            // instead of a settings object
+          ],
+        });
+      });
+    </script>
+  </body>
+</html>
