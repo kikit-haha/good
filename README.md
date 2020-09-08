@@ -1,2 +1,2 @@
-# paintJS
-Painting board made with vanila JS
+# good
+study html,css,js
