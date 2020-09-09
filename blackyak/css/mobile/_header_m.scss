@@ -1,0 +1,200 @@
+@mixin navigation($padding) {
+	& > ul {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		& > li {
+			padding: 0 $padding;
+		}
+	}
+}
+
+header {
+	max-width: 345px;
+	margin: 0 auto;
+	position: relative;
+}
+.gnb__top {
+	@include navigation(10px);
+	position: absolute;
+	top: 10px;
+	right: 0px;
+	z-index: 100;
+	width: 20%;
+	a {
+		color: #fff;
+		&:hover {
+			color: rgba(235, 235, 235, 0.904);
+		}
+	}
+}
+.gnb__wrap {
+	position: absolute;
+	width: 100%;
+	top: 36px;
+	z-index: 100;
+}
+#search-box {
+	width: 290px;
+	margin: 0 auto;
+}
+.search_area {
+	position: relative;
+	legend {
+		display: none;
+	}
+	#search-box {
+		width: 290px;
+		height: 48px;
+		border-radius: $radius;
+		border: none;
+		padding-left: 20px;
+		background-color: #d4d4d4;
+	}
+	button {
+		background-color: #00000000;
+		border-width: 0px;
+		&:hover::after {
+			color: rgba(12, 12, 12, 0.9);
+		}
+		&::after {
+			display: block;
+			position: absolute;
+			z-index: 200;
+			content: "\f002";
+			right: 10px;
+			top: 1px;
+			width: 45px;
+			height: 45px;
+			font-family: "Font Awesome 5 Free";
+			font-weight: 900;
+			font-size: 22px;
+			line-height: 45px;
+			cursor: pointer;
+			color: #333;
+		}
+	}
+}
+// 상단고정메뉴
+nav {
+	width: 100%;
+	background-color: #fff;
+}
+.m-gnb {
+	max-width: 345px;
+	height: 63px;
+	margin: 0 auto;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	.logo {
+		margin-right: 113px;
+		a {
+			width: 94px;
+			height: 40px;
+			display: block;
+			font-size: 0;
+
+			img {
+				width: 100%;
+				height: auto;
+			}
+		}
+	}
+	li {
+		line-height: 63px;
+	}
+	&__list {
+		text-align: center;
+		a {
+			display: block;
+		}
+		i {
+			font-size: 20px;
+			padding: 10px;
+		}
+	}
+}
+// 토글버튼 gnb
+.gnb {
+	width: 100vw;
+	height: 100%;
+	position: fixed;
+	top: 0px;
+	left: 100vw;
+	z-index: 400;
+
+	background-color: rgba(0, 0, 0, 0.8);
+	color: #111;
+
+	&__inner {
+		width: 80%;
+		height: 100%;
+		background-color: rgba(255, 255, 255, 0.8);
+	}
+	&__close {
+		font-size: 30px;
+		color: rgb(255, 255, 255);
+		position: absolute;
+		z-index: 9999;
+		right: 23px;
+		top: 17px;
+	}
+	&__title {
+		text-align: left;
+		height: 60px;
+		line-height: 60px;
+		text-transform: uppercase;
+		font-size: 1.2rem;
+		font-weight: 600;
+		position: relative;
+		padding-left: 48px;
+		border-bottom: 1px solid #999;
+
+		i {
+			position: absolute;
+			z-index: 9999;
+			right: 24px;
+			top: 6px;
+			padding: 10px 20px;
+		}
+		&:active {
+			color: #777;
+		}
+	}
+	&__list {
+		padding-top: 60px;
+	}
+}
+.gnb__li {
+	position: relative;
+	a {
+		color: #111;
+	}
+	i.fas {
+		font-size: 30px;
+	}
+}
+.sub {
+	display: none;
+	transition: 0.5s;
+	text-align: left;
+	height: 30px;
+	line-height: 30px;
+	text-transform: uppercase;
+	font-size: 1rem;
+	font-weight: 600;
+	padding-left: 48px;
+	&.active {
+		display: block !important;
+		transition: 0.5s;
+	}
+
+	a {
+		color: #111;
+		text-align: center;
+	}
+}
+.gnb__title--open.on {
+	transform: rotate(180deg);
+}

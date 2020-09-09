@@ -1,0 +1,117 @@
+$margin-bottom-large: 80px;
+@mixin content_form {
+  max-width: 345px;
+  margin: 0 auto;
+  .figure {
+    width: 100%;
+    &__image {
+      display: block;
+      width: 345px;
+      height: 323px;
+      overflow: hidden;
+      margin-bottom: $margin-bottom-basic;
+      img {
+        width: auto;
+        height: 100%;
+      }
+    }
+  }
+  .figure__text {
+    font-family: "Noto Sans KR", sans-serif !important;
+    text-align: left;
+    &--title {
+      font-size: 1.75rem;
+      font-weight: bold;
+      margin-bottom: $margin-bottom-basic;
+    }
+    &--sub {
+      font-weight: bold;
+      font-size: 0.9rem;
+      line-height: 1.3rem;
+      letter-spacing: -1px;
+      margin-bottom: $margin-bottom-basic;
+    }
+  }
+  .figure__button {
+    width: 124px;
+    margin-right: auto;
+    margin-bottom: $margin-bottom-large;
+    text-align: center;
+
+    a {
+      display: block;
+      width: 218px;
+      height: 40px;
+      line-height: 40px;
+      background-color: $btn_color;
+      font-weight: bold;
+      color: #e6e6e6;
+      border-radius: $radius;
+      &:hover {
+        background-color: $btn_color_hover;
+      }
+    }
+  }
+}
+@mixin smooth-slide {
+  width: 374px;
+  margin: 0 auto;
+  a {
+    display: block;
+    width: 100%;
+    height: 417px;
+    div {
+      height: 318px;
+      width: 100%;
+      overflow: hidden;
+      margin-bottom: 20px;
+      img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+    }
+    h4 {
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+      color: #202020;
+    }
+    p {
+      color: #888888;
+      line-height: 1.2rem;
+    }
+  }
+}
+.content {
+  @include content_form();
+}
+
+.smooth-slide {
+  max-width: 345px;
+
+  margin-bottom: $margin-bottom-large;
+  h3 {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+    color: #111;
+  }
+  .content--slide {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 345px;
+    height: 417px;
+    overflow: hidden;
+    .card {
+      @include smooth-slide();
+    }
+  }
+}
+// article {
+//   width: 1586px;
+// }
+.main_image .slick-dots {
+  bottom: 15px;
+}

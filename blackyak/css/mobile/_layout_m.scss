@@ -1,0 +1,46 @@
+.section-inner {
+  max-width: 345px;
+  margin: 0 auto;
+}
+
+// 메인슬라이더
+.main_image {
+  width: 100%;
+  height: 215px;
+  overflow: hidden;
+  &__slide {
+    width: 100%;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+}
+.slick-arrow {
+  z-index: 2; /* prev버튼은 위치 이동시 이미지 뒤로 숨겨짐 */
+  position: absolute; /* 원하는 위치에 지정  */
+  top: 50%;
+  width: 40px;
+  height: 40px;
+  transform: translateY(-25px);
+  font-size: 40px;
+}
+.slick-prev.slick-arrow {
+  /* prev 이전 */
+  left: 0px;
+}
+.slick-next.slick-arrow {
+  /* next 다음 */
+  right: 0px;
+}
+.slick-prev:before,
+.slick-next:before {
+  font-size: 40px;
+}
+.slick-dots {
+  bottom: 30px;
+}
+.slick-dots li button:before {
+  font-size: 20px !important;
+}
