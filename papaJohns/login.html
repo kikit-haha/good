@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Login</title>
+	<link rel="stylesheet" href="css/reset.css" type="text/css" />
+	<link rel="stylesheet" href="css/base.css" type="text/css" />
+	<link rel="stylesheet" href="css/login.css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+	<script src="script/prefixfree.min.js"></script>
+</head>
+
+<body>
+	<!--	헤더영역 시작-->
+
+	<header>
+		<nav class="header_inner">
+			<h2>로그인</h2>
+			<a href="index.html" title="메인페이지로바로가기"><i class="fas fa-times"></i><span>메인바로가기</span></a>
+		</nav>
+	</header>
+
+	<section>
+		<input type="radio" name="login_tab" id="tab01" checked />
+		<input type="radio" name="login_tab" id="tab02" />
+		<ul class="gnb">
+			<li>
+				<label for="tab01">회원로그인</label>
+			</li>
+			<li>
+				<label for="tab02">비회원</label>
+			</li>
+		</ul>
+		<article class="member_login">
+			<h3>회원로그인</h3>
+			<ul class="login_list">
+				<li>
+					<input type="text" placeholder="아이디를 입력해주세요" class="text_form" id="login_id"/><label for="login_id" class="notseen">아이디입력창</label>
+				</li>
+				<li>
+					<input type="password" placeholder="비밀번호를 입력해주세요" class="text_form" id="login_password"/><label for="login_password" class="notseen">비밀번호입력창</label>
+				</li>
+				<li>
+					<input type="checkbox" id="remember_id" class="login_info" /><label for="remember_id">아이디 저장</label>
+				</li>
+				<li><input type="button" value="로그인" class="submit_btn" /></li>
+				<li class="find find01">
+					<a href="find_id" title="아이디찾기" class="login_info">아이디 찾기</a>
+				</li>
+				<li class="find find02">
+					<a href="find_password" title="비밀번호찾기" class="login_info">비밀번호 찾기</a>
+				</li>
+				<li>
+					<a href="join.html" class="submit_btn big_btn" title="회원가입">회원가입</a>
+				</li>
+				<li>
+					<ul class="sns_login">
+						<li>
+							<a href="naver.html" title="네이버로로그인">네이버로 로그인</a>
+						</li>
+						<li>
+							<a href="payco.html" title="페이코로로그인">페이코로 로그인</a>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</article>
+		<article class="visitor">
+			<ul>
+				<li>
+					<ul id="visit">
+						<li>
+							<input type="radio" id="visitor_order" name="visitor_tab" checked /><label for="visitor_order">비회원 주문</label>
+						</li>
+						<li>
+							<input type="radio" id="visitor_check" name="visitor_tab" /><label for="visitor_check">비회원 주문조회</label>
+						</li>
+					</ul>
+				</li>
+
+				<li>
+					<label for="visitor_name">이름</label><input type="text" id="visitor_name" class="text_form02" />
+				</li>
+				<li>
+					<label for="visitor_phone">연락처</label><input type="text" id="visitor_phone" class="text_form02" />
+				</li>
+				<li>
+					<input type="button" value="인증번호 발송" class="submit_btn send" />
+				</li>
+				<li>
+					<label for="verification">인증번호</label><input type="text" id="verification" class="text_form02" />
+				</li>
+				<li>
+					<input type="radio" name="term" id="term_must" /><label for="term_must">개인정보 수집 / 이용동의(필수)</label>
+				</li>
+				<li>
+					<input type="button" value="주문하기" class="submit_btn big_btn" />
+				</li>
+			</ul>
+		</article>
+	</section>
+
+	<!--컨텐츠영역 시작-->
+	<!--푸터영역 시작-->
+	<footer>
+		<ul class="sns">
+			<li><a href="notfound.html" title="페이스북바로가기"><i class="facebook"></i><span>페이스북</span></a></li>
+			<li><a href="notfound.html" title="인스타그램바로가기"><i class="instagram"></i><span>인스타그램</span></a></li>
+			<li><a href="notfound.html" title="블로그바로가기"><i class="blog"></i><span>블로그</span></a></li>
+			<li><a href="notfound.html" title="카카오페이지바로가기"><i class="kakao"></i><span>카카오페이지</span></a></li>
+		</ul>
+		<ul id="f_lnb">
+			<li><a href="terms.html" title="이용약관">이용약관</a></li>
+			<li>
+				<a href="privacy.html" title="개인정보처리방침">개인정보처리방침</a>
+			</li>
+			<li><a href="csCenter.html" title="고객센터">고객센터</a></li>
+			<li><a href="groupOrder.html" title="단체주문">단체주문</a></li>
+			<li>
+				콜센터주문<a href="tel:1566-0889" title="콜센터 전화걸기">1566.0889</a>
+			</li>
+			<li>
+				고객센터<a href="tel:1577-8142" title="고객센터 전화걸기">1577.8142</a>
+			</li>
+		</ul>
+		<address>
+			<input type="checkbox" id="address_info" />
+			<ul>
+				<li>
+					<label for="address_info">한국파파존스(주) 사업자정보<i class="fas fa-chevron-down"></i></label>
+				</li>
+				<li class="open_address">
+					서울시 강남구 신사동 614-3 융기빌딩4층 135-894 Tel:1577-8080
+					Fax:02-515-8448 대표이사:서창우 개인정보관리 책임자:전용관
+					사업자등록번호:211-87-25621 통신판매신고:강남11495호
+				</li>
+				<li>COPYRIGHT © 2018 PAPAJOHNS.ALL RIGHTS RESERVED</li>
+			</ul>
+		</address>
+				<aside id="top_btn">
+			<a href="#" title="맨 위로 올라가기" id="top"><img src="img/icon/top.svg" alt="위로올라가기"><span id="no">위로올라가기</span></a>
+		</aside>
+	</footer>
+		<script>
+		$(document).ready(function() {
+			$('aside').hide(); //
+			$(window).scroll(function() {
+				var spos = $(window).scrollTop(); //
+				console.log(spos); //
+				if (spos >= 200) { //
+					$('aside').fadeIn(); //
+				} else { //그렇지않으면
+					$('aside').fadeOut(); //
+				}
+			});
+			$('aside a').click(function() {
+				$('html, body').animate({
+					scrollTop: '0px'
+				}, 200);
+				return false; //
+			});
+		});
+	</script>
+</body>
+
+</html>

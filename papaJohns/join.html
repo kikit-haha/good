@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<link rel="stylesheet" href="css/reset.css" type="text/css" />
+	<link rel="stylesheet" href="css/base.css" type="text/css" />
+	<link rel="stylesheet" href="css/join.css" type="text/css" />
+	<title>Join</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+	<script src="script/prefixfree.min.js"></script>
+</head>
+
+<body>
+	<header>
+		<nav class="header_inner">
+			<h2>회원가입</h2>
+			<a href="index.html" title="메인페이지로 바로가기"><i class="fas fa-times"></i><span>메인바로가기</span></a>
+		</nav>
+	</header>
+	<section>
+		<article class="progress">
+			<h3>진행상황</h3>
+			<ul class="progress_list">
+				<li><i class="fas fa-edit"></i>약관동의</li>
+				<li><i class="fas fa-user"></i>정보입력</li>
+				<li><i class="fas fa-user-check"></i>가입완료</li>
+			</ul>
+		</article>
+		<article class="join_info">
+			<ul>
+				<li>
+					<input type="text" class="text_form rep" placeholder="아이디를 입력하세요" id="join_id" /><input type="button" value="중복확인" class="submit_btn repetition" id="join_rep" />
+					<label for="join_id" id="notseen">아이디입력하세요</label><label for="join_rep" id="notseen2">중복확인</label>
+				</li>
+				<li>
+					<label for="password_01">비밀번호</label><input type="password" id="password_01" class="text_form" />
+				</li>
+				<li>
+					<label for="password_02">비밀번호 확인</label><input type="password" id="password_02" class="text_form" />
+				</li>
+				<li>
+					<label for="name">이름</label><input type="text" id="name" class="text_form" />
+				</li>
+
+				<li><input type="button" value="주소찾기" class="submit_btn" /></li>
+				<li>
+					<input type="text" placeholder="기본주소" class="text_form02" id="address_fun"/><label for="address_fun" id="notseen3">기본주소</label>
+				</li>
+				<li>
+					<input type="text" placeholder="상세주소" class="text_form02" id="address_det"/><label for="address_det" id="notseen4">상세주소</label>
+				</li>
+			</ul>
+			<ul id="papa_reward">
+				<li>파파리워드 가입(선택)</li>
+				<li>
+					<ul id="benefit">
+						<li>신규가입 <strong>25%할인</strong></li>
+						<li>온라인 주문 <strong>20% 할인</strong></li>
+						<li>생일맞이 <strong>30% 할인</strong></li>
+					</ul>
+				</li>
+				<li class="papa_terms">
+					파파 리워드 가입시 리워드 조각 적립을 통해 다양한 혜택을 받아보실
+					수있습니다. 가입시 문자(SMS,MMS) 수신에 대한 동의가 추가적으로
+					필요합니다.
+				</li>
+				<li class="papa_terms box">
+					<input type="checkbox" id="agree" /><label for="agree">파파리워드 가입에 동의합니다</label>
+				</li>
+			</ul>
+			<ul class="marketing_agree">
+				<li id="marketing_use">
+					마케팅 활용 동의
+					<input type="checkbox" id="marketing_check" /><label for="marketing_check">전체선택</label>
+				</li>
+				<li class="papa_terms">
+					마케팅/홍보를 위한 아래 항목의 정보를 이용하는데 동의하십니까? 동의
+					거부시 할인 및 이벤트 정보안내 서비스가 제한됩니다.
+				</li>
+				<li>
+					<input type="checkbox" id="check01" /><label for="check01" class="papa_terms for_papa">이메일을 통한 제품 및 이벤트 정보 수신에 동의합니다.</label>
+				</li>
+				<li>
+					<input type="checkbox" id="check02" /><label for="check02" class="papa_terms for_papa">문자(SMS, MMS) 통한 제품 및 이벤트 정보 수신에 동의합니다.</label>
+				</li>
+				<li>
+					<input type="checkbox" id="check03" />
+					<label for="check03" class="papa_terms for_papa">우편DM을 통한 제품 및 이벤트 정보수신에 동의합니다.(최근 배달주소
+						사용)</label>
+				</li>
+			</ul>
+			<input type="button" value="회원가입" class="submit_btn join" />
+		</article>
+	</section>
+
+	<footer>
+		<ul class="sns">
+			<li><a href="notfound.html" title="페이스북바로가기"><i class="facebook"></i><span>페이스북</span></a></li>
+			<li><a href="notfound.html" title="인스타그램바로가기"><i class="instagram"></i><span>인스타그램</span></a></li>
+			<li><a href="notfound.html" title="블로그바로가기"><i class="blog"></i><span>블로그</span></a></li>
+			<li><a href="notfound.html" title="카카오페이지바로가기"><i class="kakao"></i><span>카카오페이지</span></a></li>
+		</ul>
+		<ul id="f_lnb">
+			<li><a href="terms.html" title="이용약관">이용약관</a></li>
+			<li>
+				<a href="privacy.html" title="개인정보처리방침">개인정보처리방침</a>
+			</li>
+			<li><a href="csCenter.html" title="고객센터">고객센터</a></li>
+			<li><a href="groupOrder.html" title="단체주문">단체주문</a></li>
+			<li>
+				콜센터주문<a href="tel:1566-0889" title="콜센터 전화걸기">1566.0889</a>
+			</li>
+			<li>
+				고객센터<a href="tel:1577-8142" title="고객센터 전화걸기">1577.8142</a>
+			</li>
+		</ul>
+		<address>
+			<input type="checkbox" id="address_info" />
+			<ul>
+				<li>
+					<label for="address_info">한국파파존스(주) 사업자정보<i class="fas fa-chevron-down"></i></label>
+				</li>
+				<li class="open_address">
+					서울시 강남구 신사동 614-3 융기빌딩4층 135-894 Tel:1577-8080
+					Fax:02-515-8448 대표이사:서창우 개인정보관리 책임자:전용관
+					사업자등록번호:211-87-25621 통신판매신고:강남11495호
+				</li>
+				<li>COPYRIGHT © 2018 PAPAJOHNS.ALL RIGHTS RESERVED</li>
+			</ul>
+		</address>
+		<aside id="top_btn">
+			<a href="#" title="맨 위로 올라가기" id="top"><img src="img/icon/top.svg" alt="위로올라가기"><span id="no">위로올라가기</span></a>
+		</aside>
+	</footer>
+		<script>
+		$(document).ready(function() {
+			$('aside').hide(); //
+			$(window).scroll(function() {
+				var spos = $(window).scrollTop(); //
+				console.log(spos); //
+				if (spos >= 200) { //
+					$('aside').fadeIn(); //
+				} else { //그렇지않으면
+					$('aside').fadeOut(); //
+				}
+			});
+			$('aside a').click(function() {
+				$('html, body').animate({
+					scrollTop: '0px'
+				}, 200);
+				return false; //
+			});
+		});
+	</script>
+</body></html>
