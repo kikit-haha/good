@@ -1,0 +1,121 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+.background_wrap {
+  width: 90%;
+  height: 100%;
+}
+.ground_wrap {
+  position: relative;
+}
+.background {
+  width: 100%;
+  height: 100%;
+  position: relative;
+
+  /* z-index: 0; */
+}
+.carrot {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 100;
+}
+.bug {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 100;
+}
+.button {
+  text-align: center;
+  border-radius: 20px;
+  padding-left: 10px;
+  cursor: pointer;
+  position: absolute;
+  top: 10%;
+  left: 60%;
+}
+.btn {
+  font-size: 60px;
+  color: rgb(5, 7, 128);
+  transition: all 0.3s linear;
+}
+.button:hover .btn {
+  color: rgb(114, 19, 223);
+}
+Í .timer {
+  width: 80px;
+  height: 40px;
+  background-color: #d96a93;
+  border: 3px solid rgb(41, 41, 41);
+  color: #fff;
+  text-align: center;
+  line-height: 40px;
+  font-size: 28px;
+  border-radius: 18px;
+  position: absolute;
+  top: 18%;
+  left: calc(50% - 40px);
+}
+.count_carrots {
+  width: 80px;
+  height: 40px;
+  background-color: #bb85e7;
+  border: 3px solid rgb(41, 41, 41);
+  text-align: center;
+  line-height: 40px;
+  font-size: 20px;
+  border-radius: 18px;
+  position: absolute;
+  top: 3%;
+  left: calc(50% - 40px);
+}
+.alert {
+  width: 400px;
+  height: 200px;
+  border-radius: 20px;
+  background-color: rgb(230, 230, 230);
+  border: 8px solid #3a3a3a;
+  text-align: center;
+  padding: 20px;
+  display: none;
+  position: absolute;
+  bottom: 30%;
+  left: calc(50% - 200px);
+  z-index: 100;
+}
+
+i.fas.fa-redo {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #26a6a6;
+  cursor: pointer;
+  transition: 0.2s linear;
+  padding: 10px;
+}
+i.fas.fa-redo:hover {
+  color: #d96a93;
+}
+.comment {
+  margin-bottom: 27px;
+  animation: move 1.2s alternate-reverse linear infinite;
+  font-size: 1.3rem;
+}
+.status {
+  font-size: 2rem;
+}
+@keyframes move {
+  100% {
+    transform: translateY(10px) scale(1.1);
+    color: rgb(185, 8, 8);
+  }
+}
