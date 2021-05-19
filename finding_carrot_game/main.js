@@ -4,7 +4,7 @@ let ground_wrap = document.querySelector(".ground_wrap");
 const timer = document.querySelector(".timer");
 let width = ground.getBoundingClientRect().width;
 let height = ground.getBoundingClientRect().height;
-let half_height = ground.getBoundingClientRect().height / 2;
+let half_height = height / 2;
 const button = document.querySelector(".button");
 const play_button = document.querySelector(".play_btn");
 const body = document.querySelector("body");
@@ -17,17 +17,26 @@ let carrots_count = carrots.length;
 let bugs;
 let replay_btn = document.querySelector(".fa-redo");
 timer.innerText = t;
+const bg = new Audio("sound/bg.mp3");
+const bug_pull = new Audio("sound/bug_pull.mp3");
+const carrot_pull = new Audio("sound/carrot_pull.mp3");
+const game_win = new Audio("sound/game_win.mp3");
+const alert_sound = new Audio("sound/alert.wav");
+
+//상태관리변수
+let PLAY = false;
 
 window.addEventListener("resize", () => {
   width = ground.getBoundingClientRect().width;
   height = ground.getBoundingClientRect().height;
+  half_height = width / 2;
   return width, height;
 });
 
 button.addEventListener("click", (event) => {
   if (play_button.classList.contains("pause_btn")) {
     play_button.setAttribute("class", "far fa-caret-square-right btn play_btn");
-    game_end(_timer, "You lose");
+    game_end(_timer, "You lose", alert_sound);
     return;
   }
   start_game();
@@ -35,33 +44,19 @@ button.addEventListener("click", (event) => {
 
 //시작버튼
 function start_game() {
+  PLAY = true;
   play_button.style.display = "block";
   countdown_carrots.style.display = "block";
   timer.style.display = "block";
   play_button.setAttribute("class", "far fa-stop-circle btn pause_btn");
-  for (let i = 0; i < 2; i++) {
-    let randomWidth = width * Math.random() - 80;
-    let randomHeight =
-      Math.random() * (height - half_height) + half_height - 80;
-    const carrot = document.createElement("img");
-    carrot.setAttribute("src", "./img/carrot.png");
-    carrot.setAttribute("class", "carrot");
-    carrot.setAttribute("data-id", i);
-    carrot.style.transform = `translate(${randomWidth}px,${randomHeight}px)`;
-    ground_wrap.append(carrot);
-  }
-  //랜덤한위치에 벌레뿌린다
-  for (let i = 0; i < 10; i++) {
-    let randomWidth = width * Math.random() - 80;
-    let randomHeight =
-      Math.random() * (height - half_height) + half_height - 80;
-    const bug = document.createElement("img");
-    bug.setAttribute("src", "./img/bug.png");
-    bug.setAttribute("class", "bug");
-    bug.setAttribute("data-id", i);
-    bug.style.transform = `translate(${randomWidth}px,${randomHeight}px)`;
-    ground_wrap.append(bug);
-  }
+
+  //배경음악
+  bg.currentTime = 0;
+  bg.play();
+
+  //당근,벌레뿌리기
+  makeElements("carrot", 10);
+  makeElements("bug", 10);
 
   t = 10;
   timer.innerText = t;
@@ -71,13 +66,28 @@ function start_game() {
   counting_carrots();
 }
 
+function makeElements(elem, num) {
+  for (let i = 0; i < num; i++) {
+    let randomWidth = width * Math.random() - 80;
+    let randomHeight = Math.random() * half_height + half_height - 80;
+    let elementName = elem;
+    console.log(elementName);
+    elementName = document.createElement("img");
+    elementName.setAttribute("src", `./img/${elem}.png`);
+    elementName.setAttribute("class", `${elem}`);
+    elementName.setAttribute("data-id", i);
+    elementName.style.transform = `translate(${randomWidth}px, ${randomHeight}px)`;
+    ground_wrap.append(elementName);
+  }
+}
+
 //타이머
 
 function timer_handler() {
   t--;
   timer.innerText = t;
   if (t == 0) {
-    game_end(_timer, "You lose!");
+    game_end(_timer, "You lose!", alert_sound);
   }
 }
 
@@ -107,7 +117,8 @@ function redo() {
   timer.innerText = t;
   _timer = setInterval(timer_handler, 1000);
 }
-//벌레,당근 삭제
+
+//게임 끝나고 벌레,당근 삭제
 function delete_elem() {
   carrots = document.querySelectorAll(".carrot");
   bugs = document.querySelectorAll(".bug");
@@ -119,14 +130,20 @@ function delete_elem() {
   });
 }
 
-function game_end(_timer, message) {
+function game_end(_timer, message, sound) {
+  PLAY = false;
   clearInterval(_timer);
+  sound.play();
+  bg.pause();
+
   play_button.style.display = "none";
   countdown_carrots.style.display = "none";
   timer.style.display = "none";
+
   delete_elem();
   finish_message(message);
   //다시시작
+
   replay_btn = document.querySelector(".fa-redo");
   replay_btn.addEventListener("click", () => {
     console.log("clicked");
@@ -134,6 +151,7 @@ function game_end(_timer, message) {
     start_game();
   });
 }
+
 function counting_carrots() {
   ground_wrap = document.querySelector(".ground_wrap");
   carrots = document.querySelectorAll(".carrot");
@@ -142,17 +160,18 @@ function counting_carrots() {
 
   ground_wrap.addEventListener("click", (e) => {
     if (e.target.className === "carrot") {
+      carrot_pull.play();
       let clicked = e.target.dataset.id;
       ground_wrap.removeChild(carrots[clicked]);
       carrots_count = carrots_count - 1;
       countdown_carrots.innerText = carrots_count;
     }
     if (e.target.className === "bug") {
-      game_end(_timer, "You clicked the bug!");
+      game_end(_timer, "You clicked the bug!", bug_pull);
     }
     console.log(carrots_count);
     if (carrots_count == 0) {
-      game_end(_timer, "You win!!");
+      game_end(_timer, "You win!!", game_win);
     }
   });
 }
