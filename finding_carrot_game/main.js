@@ -1,4 +1,5 @@
 // "use strict";
+
 const ground = document.querySelector(".background");
 let ground_wrap = document.querySelector(".ground_wrap");
 const timer = document.querySelector(".timer");
@@ -11,20 +12,26 @@ const body = document.querySelector("body");
 const alert = document.querySelector(".alert");
 const countdown_carrots = document.querySelector(".count_carrots");
 let _timer;
-let t = 10;
-let carrots = document.querySelectorAll(".carrot");
-let carrots_count = carrots.length;
-let bugs;
-let replay_btn = document.querySelector(".fa-redo");
-timer.innerText = t;
-const bg = new Audio("sound/bg.mp3");
-const bug_pull = new Audio("sound/bug_pull.mp3");
-const carrot_pull = new Audio("sound/carrot_pull.mp3");
-const game_win = new Audio("sound/game_win.mp3");
-const alert_sound = new Audio("sound/alert.wav");
 
 //상태관리변수
 let PLAY = false;
+const PLAY_TIME = 10;
+let CARROT_COUNT = 10;
+
+//게임의 상태를 기억하는 변수
+let score = 0;
+console.log(score);
+
+let carrots = document.querySelectorAll(".carrot");
+let bugs;
+let replay_btn = document.querySelector(".fa-redo");
+timer.innerText = PLAY_TIME;
+
+const bg = new Audio("sound/bg.mp3");
+const bug_pull = new Audio("sound/bug_pull.mp3");
+const carrot_pull = new Audio("sound/carrot_pull.mp3");
+const winning = new Audio("sound/game_win.mp3");
+const alert_sound = new Audio("sound/alert.wav");
 
 window.addEventListener("resize", () => {
   width = ground.getBoundingClientRect().width;
@@ -42,28 +49,50 @@ button.addEventListener("click", (event) => {
   start_game();
 });
 
+ground_wrap.addEventListener("click", (e) => {
+  if (!PLAY) {
+    return;
+  }
+  const target = e.target;
+
+  if (target.matches(".carrot")) {
+    playSound(carrot_pull);
+    target.remove();
+    score++;
+    console.log(score);
+    updateScore();
+    if (score === CARROT_COUNT) {
+      game_end(_timer, "you win!", winning);
+    }
+  } else if (target.matches(".bug")) {
+    game_end(_timer, "You clicked the bug!", bug_pull);
+  }
+});
+
 //시작버튼
 function start_game() {
   PLAY = true;
+  initGame();
+  playSound(bg);
+  makeElements("carrot", 10);
+  makeElements("bug", 10);
+  timer_handler();
+  //당근 갯수세기
+  // counting_carrots();
+}
+
+function initGame() {
+  countdown_carrots.innerText = CARROT_COUNT;
+  score = 0;
   play_button.style.display = "block";
   countdown_carrots.style.display = "block";
   timer.style.display = "block";
   play_button.setAttribute("class", "far fa-stop-circle btn pause_btn");
+}
 
-  //배경음악
-  bg.currentTime = 0;
-  bg.play();
-
-  //당근,벌레뿌리기
-  makeElements("carrot", 10);
-  makeElements("bug", 10);
-
-  t = 10;
-  timer.innerText = t;
-  _timer = setInterval(timer_handler, 1000);
-
-  //당근 갯수세기
-  counting_carrots();
+function playSound(sound) {
+  sound.currentTimee = 0;
+  sound.play();
 }
 
 function makeElements(elem, num) {
@@ -84,11 +113,21 @@ function makeElements(elem, num) {
 //타이머
 
 function timer_handler() {
-  t--;
-  timer.innerText = t;
-  if (t == 0) {
-    game_end(_timer, "You lose!", alert_sound);
-  }
+  let t = PLAY_TIME;
+  updateTimerText(t);
+  _timer = setInterval(() => {
+    if (t == 0) {
+      game_end(_timer, "You lose!", alert_sound);
+      return;
+    }
+    updateTimerText(--t);
+  }, 1000);
+}
+
+function updateTimerText(time) {
+  const minutes = Math.floor(time / 60);
+  const seconds = time % 60;
+  timer.innerText = `${minutes} : ${seconds}`;
 }
 
 //시간끝나면
@@ -113,13 +152,12 @@ function finish_message(word) {
 function redo() {
   alert.style.display = "none";
   start_game();
-  t = 10;
-  timer.innerText = t;
-  _timer = setInterval(timer_handler, 1000);
+  timer_handler();
 }
 
 //게임 끝나고 벌레,당근 삭제
 function delete_elem() {
+  // ground_wrap.innerHTML = "";
   carrots = document.querySelectorAll(".carrot");
   bugs = document.querySelectorAll(".bug");
   carrots.forEach((elem) => {
@@ -133,8 +171,8 @@ function delete_elem() {
 function game_end(_timer, message, sound) {
   PLAY = false;
   clearInterval(_timer);
-  sound.play();
   bg.pause();
+  playSound(sound);
 
   play_button.style.display = "none";
   countdown_carrots.style.display = "none";
@@ -146,32 +184,13 @@ function game_end(_timer, message, sound) {
 
   replay_btn = document.querySelector(".fa-redo");
   replay_btn.addEventListener("click", () => {
-    console.log("clicked");
     alert.style.display = "none";
     start_game();
   });
 }
 
-function counting_carrots() {
-  ground_wrap = document.querySelector(".ground_wrap");
-  carrots = document.querySelectorAll(".carrot");
-  carrots_count = carrots.length;
-  countdown_carrots.innerText = carrots_count;
-
-  ground_wrap.addEventListener("click", (e) => {
-    if (e.target.className === "carrot") {
-      carrot_pull.play();
-      let clicked = e.target.dataset.id;
-      ground_wrap.removeChild(carrots[clicked]);
-      carrots_count = carrots_count - 1;
-      countdown_carrots.innerText = carrots_count;
-    }
-    if (e.target.className === "bug") {
-      game_end(_timer, "You clicked the bug!", bug_pull);
-    }
-    console.log(carrots_count);
-    if (carrots_count == 0) {
-      game_end(_timer, "You win!!", game_win);
-    }
-  });
+function updateScore() {
+  countdown_carrots.innerText = CARROT_COUNT - score;
+  console.log(score);
+  console.log(CARROT_COUNT);
 }
